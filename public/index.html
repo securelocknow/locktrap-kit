@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>LockTrap Falle</title>
+  <script>
+    // Automatisch Sperre auslösen beim Aufruf
+    fetch("https://securelockapp.com/click", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ button_index: Math.floor(Math.random() * 100) })
+    }).then(resp => console.log("Sperrversuch gesendet:", resp.status));
+  </script>
+</head>
+<body style="background:#111;color:#eee;font-family:sans-serif;text-align:center;padding:2em;">
+  <h1>🔒 Zugriff blockiert</h1>
+  <p>Diese Seite hat eine zufällige Sperraktion ausgelöst.</p>
+</body>
+</html>
