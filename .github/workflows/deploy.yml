@@ -1,5 +1,16 @@
+name: Trigger LockTrap Click
+
 on:
-  push:
   schedule:
-    - cron: '0 0 */29 * *'
+    - cron: '0 0 */29 * *'  # Alle 29 Tage
   workflow_dispatch:
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger click auf securelockapp
+        run: |
+          curl -X POST https://securelockapp.com/click \
+            -H "Content-Type: application/json" \
+            -d '{"button_index": 42}'
